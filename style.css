@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --ff-text: 'Roboto', sans-serif;
+  --fs-text: clamp(11rem, 9rem + 5vw, 12.6rem);
+
+  --base-color: 194;
+  --fc: hsla(var(--base-color), 6%, 21%, 1);
+  --bc: hsla(var(--base-color), 9%, 89%, 1);
+  --pc: hsla(var(--base-color), 97%, 31%, 1);
+  --hc: hsla(var(--base-color), 6%, 79%, 1);
+  --phc: hsla(var(--base-color), 97%, 21%, 1);
+  --bg: hsla(var(--base-color), 0%, 100%, 1);
+  --bci: hsla(var(--base-color), 9%, 89%, 1);
+
+  --fc-dark: hsla(var(--base-color), 7%, 78%, 1);
+  --bc-dark: hsla(var(--base-color), 6%, 17%, 1);
+  --pc-dark: hsla(var(--base-color), 74%, 15%, 1);
+  --hc-dark: hsla(var(--base-color), 6%, 27%, 1);
+  --phc-dark: hsla(var(--base-color), 74%, 25%, 1);
+  --bg-dark: hsla(var(--base-color), 5%, 7%, 1);
+  --bci-dark: hsla(var(--base-color), 7%, 78%, 1);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--ff-text);
+  background: var(--bg);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.color-mode {
+  position: absolute;
+  right: 6.4rem;
+  top: 6.4rem;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.color-mode button,
+.buttons-timer button {
+  background: none;
+}
+
+.color-mode button svg path,
+.buttons-timer button svg path,
+.buttons-sound button svg path {
+  fill: var(--fc);
+}
+
+.buttons-sound svg {
+  margin-bottom: 4.8rem;
+}
+
+.time {
+  text-align: center;
+}
+
+span {
+  font-size: var(--fs-text);
+  line-height: 14.8rem;
+  color: var(--fc);
+}
+
+.buttons-timer {
+  margin-top: 1.7rem;
+  display: flex;
+  justify-content: center;
+  gap: clamp(2rem, 1rem + 5vw, 4rem);
+}
+
+.buttons-sound {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 1rem + 5vw, 3.2rem);
+}
+
+.sound-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.buttons-sound button {
+  border-radius: 2.4rem;
+  background: var(--bc);
+  width: 13.2rem;
+  height: 15.2rem;
+}
+
+.hide {
+  display: none;
+}
+
+.buttons-sound .on {
+  background: var(--pc);
+}
+
+.buttons-sound .on:hover {
+  background: var(--phc);
+}
+
+.buttons-sound .on svg path {
+  fill: var(--bci);
+}
+
+.buttons-sound button:hover {
+  background: var(--hc);
+}
+
+.buttons-sound input {
+  position: absolute;
+  bottom: 2.4rem;
+  width: 9rem;
+  height: .4rem;
+  background-color: var(--fc);
+  appearance: none;
+  border-radius: .5rem;
+}
+
+.buttons-sound input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--fc);
+  cursor: pointer;
+}
+
+.on+input,
+.on+input::-webkit-slider-thumb {
+  background: var(--bci);
+}
+
+@media (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(4rem, 1rem + 10vw, 19.1rem);
+  }
+
+  span {
+    font-size: var(--fs-text);
+    line-height: 14.8rem;
+    color: var(--fc);
+  }
+}
