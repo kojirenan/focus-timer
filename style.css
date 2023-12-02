@@ -7,9 +7,9 @@
 :root {
   font-size: 62.5%;
   --ff-text: 'Roboto', sans-serif;
-  --fs-text: clamp(11rem, 9rem + 5vw, 12.6rem);
+  --fs-text: clamp(10rem, 12rem, 14rem);
 
-  --base-color: 194;
+  --base-color: 5;
   --fc: hsla(var(--base-color), 6%, 21%, 1);
   --bc: hsla(var(--base-color), 9%, 89%, 1);
   --pc: hsla(var(--base-color), 97%, 31%, 1);
@@ -28,10 +28,6 @@
 }
 
 body {
-  display: grid;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
   font-family: var(--ff-text);
   background: var(--bg);
 }
@@ -40,13 +36,17 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4.8rem;
+  gap: clamp(1.2rem, 4vh, 4rem);
 }
 
 .color-mode {
-  position: absolute;
-  right: 6.4rem;
-  top: 6.4rem;
+  align-self: flex-end;
+  padding: 1.6rem;
+}
+
+.color-mode > button > svg {
+  width: clamp(2rem, 4vw, 4rem);
+  height: clamp(2rem, 4vw, 4rem);
 }
 
 button {
@@ -75,21 +75,20 @@ button {
 
 span {
   font-size: var(--fs-text);
-  line-height: 14.8rem;
+  line-height: 14rem;
   color: var(--fc);
 }
 
 .buttons-timer {
-  margin-top: 1.7rem;
+  margin: 1.6rem;
   display: flex;
-  justify-content: center;
-  gap: clamp(2rem, 1rem + 5vw, 4rem);
+  justify-content: space-between;
 }
 
 .buttons-sound {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 1rem + 5vw, 3.2rem);
+  gap: 2rem;
 }
 
 .sound-wrapper {
@@ -102,8 +101,8 @@ span {
 .buttons-sound button {
   border-radius: 2.4rem;
   background: var(--bc);
-  width: 13.2rem;
-  height: 15.2rem;
+  width: clamp(12rem, 14rem, 16rem);
+  height: clamp(16rem, 18rem, 20rem);
 }
 
 .hide {
@@ -130,10 +129,10 @@ span {
   position: absolute;
   bottom: 2.4rem;
   width: 9rem;
-  height: .4rem;
+  height: 0.4rem;
   background-color: var(--fc);
   appearance: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .buttons-sound input::-webkit-slider-thumb {
@@ -145,22 +144,17 @@ span {
   cursor: pointer;
 }
 
-.on+input,
-.on+input::-webkit-slider-thumb {
+.on + input,
+.on + input::-webkit-slider-thumb {
   background: var(--bci);
 }
 
 @media (min-width: 768px) {
-  main {
+  .content {
+    margin-top: 10rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: clamp(4rem, 1rem + 10vw, 19.1rem);
-  }
-
-  span {
-    font-size: var(--fs-text);
-    line-height: 14.8rem;
-    color: var(--fc);
+    justify-content: space-evenly;
+    width: 100%;
   }
 }
